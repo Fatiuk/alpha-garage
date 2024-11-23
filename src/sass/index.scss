@@ -1,2 +1,10 @@
-@import './common';
-@import './example';
+// General
+@forward './common';
+@forward './fonts';
+
+// Partials
+@forward './partials/header';
+@forward './partials/hero';
+
+// Components
+@forward './components/scroll';
