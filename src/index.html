@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Watch Spot</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <load src="./partials/header.html" />
+    <main>
+      <!-- Section 1 Hero -->
+      <load src="./partials/hero.html" />
+      <!-- Section 2 "About us" -->
+      <load src="./partials/about.html" />
+      <!-- Section 3 "Catalog" -->
+      <load src="./partials/catalog.html" />
+      <!-- Section 4 "New watches" -->
+      <load src="./partials/watches.html" />
+      <!-- Section 5 "Sale" -->
+      <load src="./partials/sale.html" />
+    </main>
+    <!-- Footer -->
+    <load src="./partials/footer.html" />
+    <!-- Buy now (popup) -->
+    <load src="./partials/popup.html" />
+    <button id="back-to-top-btn">
+      <svg class="back-to-top-icon" width="40" height="40">
+        <use href="./img/icons.svg#icon-left"></use>
+      </svg>
+    </button>
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
