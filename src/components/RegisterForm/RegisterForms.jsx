@@ -15,7 +15,7 @@ import {
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { register, googleSignIn } from 'redux/auth/operations';
+import { register } from 'redux/auth/operations';
 import createToast from 'utils/toast';
 import Copyright from 'components/Copyright/Copyright';
 
