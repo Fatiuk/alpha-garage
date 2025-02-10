@@ -15,30 +15,28 @@ import {
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/operations';
+import { register, googleSignIn } from 'redux/auth/operations';
 import createToast from 'utils/toast';
 import Copyright from 'components/Copyright/Copyright';
 
 // Validation for registration form
 const validationSchema = yup.object({
   name: yup
-    .string('Enter your full name')
-    .required('Full name is required')
-    .matches(/^[A-Za-z\s]+$/, 'Name can only contain (ENG) letters'),
+    .string("Введіть своє ім'я")
+    .required("Потрібно вказати повне ім'я")
+    .matches(/^[A-Za-z\s]+$/, "Ім'я може містити тільки літери латиницею"),
   email: yup
-    .string('Enter your email')
-    .email('Enter a valid email')
-    .required('Email is required'),
+    .string('Введіть свою електронну пошту')
+    .email('Введіть правильну електронну пошту')
+    .required("Електронна пошта є обов'язковою"),
   password: yup
-    .string('Enter your password')
-    .min(8, 'Password should be of minimum 8 characters length')
-    .required('Password is required'),
+    .string('Введіть свій пароль')
+    .min(8, 'Пароль має бути не менше 8 символів')
+    .required("Пароль є обов'язковим"),
 });
 
 const RegisterForm = () => {
-  // Create a Redux dispatcher
   const dispatch = useDispatch();
-  // Initialization Formik
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -48,8 +46,8 @@ const RegisterForm = () => {
     validationSchema: validationSchema,
     onSubmit: async values => {
       try {
-        const result = await dispatch(register(values)).unwrap(); //unwrap() will throw the rejected value
-        createToast('success', `Welcome ${result.user.name}`);
+        const result = await dispatch(register(values)).unwrap();
+        createToast('success', `Ласкаво просимо ${result.user.name}`);
       } catch (error) {
         createToast('error', error);
       }
@@ -71,7 +69,7 @@ const RegisterForm = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Зареєструватися
         </Typography>
         <Box
           component="form"
@@ -87,7 +85,7 @@ const RegisterForm = () => {
                 fullWidth
                 id="name"
                 name="name"
-                label="Name"
+                label="Ім'я"
                 value={formik.values.name}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -103,7 +101,7 @@ const RegisterForm = () => {
                 autoComplete="email"
                 id="email"
                 name="email"
-                label="Email Address"
+                label="Email"
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -118,7 +116,7 @@ const RegisterForm = () => {
                 autoComplete="new-password"
                 id="password"
                 name="password"
-                label="Password"
+                label="Пароль"
                 type="password"
                 value={formik.values.password}
                 onChange={formik.handleChange}
@@ -132,16 +130,16 @@ const RegisterForm = () => {
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+                label="Я погоджуюсь на обробку моїх персональних даних."
               />
             </Grid>
           </Grid>
           <Button
             type="submit"
             variant="contained"
-            sx={{ mt: 3, mb: 2, width: '100%' }}
+            sx={{ mt: 1, mb: 2, width: '100%' }}
           >
-            Sign Up
+            Зареєструватися
           </Button>
         </Box>
         <Button
@@ -151,7 +149,7 @@ const RegisterForm = () => {
           component={Link}
           to="/login"
         >
-          I already have a profile
+          Я вже маю профіль
         </Button>
       </Box>
       <Copyright sx={{ mt: 5 }} />

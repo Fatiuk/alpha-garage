@@ -1,5 +1,5 @@
 // ============ React ============
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 // ============ React Redux ============
 import { useDispatch } from 'react-redux';
 // ============ React Router ============
@@ -37,9 +37,13 @@ const darkTheme = createTheme({
 const App = () => {
   // Create a Redux dispatcher
   const dispatch = useDispatch();
+  const initializedRef = useRef(false);
 
   useEffect(() => {
-    dispatch(refreshUser());
+    if (!initializedRef.current) {
+      dispatch(refreshUser());
+      initializedRef.current = true;
+    }
   }, [dispatch]);
 
   return (
