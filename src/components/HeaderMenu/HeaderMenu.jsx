@@ -8,7 +8,7 @@ import {
   MenuItem,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import AddIcCallIcon from '@mui/icons-material/AddIcCall';
+import EmojiTransportationRoundedIcon from '@mui/icons-material/EmojiTransportationRounded';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks';
 
@@ -28,7 +28,9 @@ const HeaderMenu = () => {
 
   return (
     <>
-      <AddIcCallIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+      <EmojiTransportationRoundedIcon
+        sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
+      />
       <Typography
         variant="h6"
         noWrap
@@ -42,9 +44,10 @@ const HeaderMenu = () => {
           letterSpacing: '.3rem',
           color: 'inherit',
           textDecoration: 'none',
+          textTransform: 'uppercase',
         }}
       >
-        MyContacts
+        Alpha garage
       </Typography>
       <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
         <IconButton
@@ -149,7 +152,9 @@ const HeaderMenu = () => {
           )}
         </Menu>
       </Box>
-      <AddIcCallIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+      <EmojiTransportationRoundedIcon
+        sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
+      />
       <Typography
         variant="h5"
         noWrap
@@ -164,9 +169,10 @@ const HeaderMenu = () => {
           letterSpacing: '.3rem',
           color: 'inherit',
           textDecoration: 'none',
+          textTransform: 'uppercase',
         }}
       >
-        MyContacts
+        Alpha garage
       </Typography>
 
       {isLoggedIn ? (
