@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/alpha-garage/static/css/main.0c8cdb8b.css",
-    "main.js": "/alpha-garage/static/js/main.271cd542.js",
+    "main.js": "/alpha-garage/static/js/main.beb299f4.js",
     "index.html": "/alpha-garage/index.html",
     "main.0c8cdb8b.css.map": "/alpha-garage/static/css/main.0c8cdb8b.css.map",
-    "main.271cd542.js.map": "/alpha-garage/static/js/main.271cd542.js.map"
+    "main.beb299f4.js.map": "/alpha-garage/static/js/main.beb299f4.js.map"
   },
   "entrypoints": [
     "static/css/main.0c8cdb8b.css",
-    "static/js/main.271cd542.js"
+    "static/js/main.beb299f4.js"
   ]
 }
