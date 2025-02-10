@@ -22,13 +22,13 @@ import Copyright from 'components/Copyright/Copyright';
 // Validation for login form
 const validationSchema = yup.object({
   email: yup
-    .string('Enter your email')
-    .email('Enter a valid email')
-    .required('Email is required'),
+    .string('Введіть свою електронну пошту')
+    .email('Введіть правильну електронну пошту')
+    .required("Електронна пошта є обов'язковою"),
   password: yup
-    .string('Enter your password')
-    .min(8, 'Password should be of minimum 8 characters length')
-    .required('Password is required'),
+    .string('Введіть свій пароль')
+    .min(8, 'Пароль має бути не менше 8 символів')
+    .required("Пароль є обов'язковим"),
 });
 
 const LoginForm = () => {
@@ -66,7 +66,7 @@ const LoginForm = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Авторизуватися
         </Typography>
         <Box
           component="form"
@@ -80,7 +80,7 @@ const LoginForm = () => {
             autoComplete="email"
             id="email"
             name="email"
-            label="Email Address"
+            label="Email"
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -94,7 +94,7 @@ const LoginForm = () => {
             autoComplete="new-password"
             id="password"
             name="password"
-            label="Password"
+            label="Пароль"
             type="password"
             value={formik.values.password}
             onChange={formik.handleChange}
@@ -112,7 +112,7 @@ const LoginForm = () => {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign In
+            Авторизуватися
           </Button>
           <Button
             variant="outlined"
@@ -121,7 +121,7 @@ const LoginForm = () => {
             component={Link}
             to="/registration"
           >
-            Registration
+            Зареєструватися
           </Button>
         </Box>
       </Box>
