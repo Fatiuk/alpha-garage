@@ -1,13 +1,21 @@
 {
   "files": {
     "main.css": "/alpha-garage/static/css/main.0c8cdb8b.css",
-    "main.js": "/alpha-garage/static/js/main.cd457be1.js",
+    "main.js": "/alpha-garage/static/js/main.a4d7bd12.js",
+    "static/media/sound.png": "/alpha-garage/static/media/sound.c1c0f6af533ef4ae8d6c.png",
+    "static/media/scratch.png": "/alpha-garage/static/media/scratch.0d635d5ea43ab8b92301.png",
+    "static/media/wrap.png": "/alpha-garage/static/media/wrap.7dedd403c0ab946573c1.png",
+    "static/media/dry-wash.png": "/alpha-garage/static/media/dry-wash.ba878da232a06e188143.png",
+    "static/media/wash.png": "/alpha-garage/static/media/wash.77da89505d60b2bcd8cd.png",
+    "static/media/tint.png": "/alpha-garage/static/media/tint.91a240605d10a69b963a.png",
+    "static/media/rims.png": "/alpha-garage/static/media/rims.9d7892ad300795512efa.png",
+    "static/media/polish.png": "/alpha-garage/static/media/polish.b92141875dd5b70df9ab.png",
     "index.html": "/alpha-garage/index.html",
     "main.0c8cdb8b.css.map": "/alpha-garage/static/css/main.0c8cdb8b.css.map",
-    "main.cd457be1.js.map": "/alpha-garage/static/js/main.cd457be1.js.map"
+    "main.a4d7bd12.js.map": "/alpha-garage/static/js/main.a4d7bd12.js.map"
   },
   "entrypoints": [
     "static/css/main.0c8cdb8b.css",
-    "static/js/main.cd457be1.js"
+    "static/js/main.a4d7bd12.js"
   ]
 }
