@@ -4,23 +4,21 @@ import {
   IconButton,
   Button,
   Typography,
-  Menu,
   MenuItem,
+  Divider,
+  Drawer,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import EmojiTransportationRoundedIcon from '@mui/icons-material/EmojiTransportationRounded';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks';
 
 const HeaderMenu = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
 
-  const handleOpenNavMenu = event => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const toggleDrawer = newOpen => () => {
+    setOpen(newOpen);
   };
 
   // Use auth selectors
@@ -28,9 +26,7 @@ const HeaderMenu = () => {
 
   return (
     <>
-      <EmojiTransportationRoundedIcon
-        sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
-      />
+      <EmojiTransportationRoundedIcon sx={{ display: { md: 'flex' }, mr: 1 }} />
       <Typography
         variant="h6"
         noWrap
@@ -38,7 +34,7 @@ const HeaderMenu = () => {
         to="/"
         sx={{
           mr: 2,
-          display: { xs: 'none', md: 'flex' },
+          display: { md: 'flex' },
           fontFamily: 'monospace',
           fontWeight: 700,
           letterSpacing: '.3rem',
@@ -49,175 +45,133 @@ const HeaderMenu = () => {
       >
         Alpha garage
       </Typography>
-      <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="menu-appbar"
-          aria-haspopup="true"
-          onClick={handleOpenNavMenu}
-          color="inherit"
-        >
-          <MenuIcon />
-        </IconButton>
-        <Menu
-          id="menu-appbar"
-          anchorEl={anchorElNav}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
-          }}
-          keepMounted
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
-          open={Boolean(anchorElNav)}
-          onClose={handleCloseNavMenu}
-          sx={{
-            display: { xs: 'block', md: 'none' },
-          }}
-        >
-          <MenuItem>
-            <Typography
-              textAlign="center"
-              component={Link}
-              to={'/'}
-              sx={{
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              Home Page
-            </Typography>
-          </MenuItem>
-          {isLoggedIn ? (
-            <Box>
-              <MenuItem>
-                <Typography
-                  textAlign="center"
-                  component={Link}
-                  to={'/contacts'}
-                  sx={{
-                    color: 'inherit',
-                    textDecoration: 'none',
-                  }}
-                >
-                  Contacts
-                </Typography>
-              </MenuItem>
-              <MenuItem>
-                <Typography
-                  textAlign="center"
-                  component={Link}
-                  to={'/favorites'}
-                  sx={{
-                    color: 'inherit',
-                    textDecoration: 'none',
-                  }}
-                >
-                  Favorites
-                </Typography>
-              </MenuItem>
-            </Box>
-          ) : (
-            <Box>
-              <MenuItem>
-                <Typography
-                  textAlign="center"
-                  component={Link}
-                  to={'/registration'}
-                  sx={{
-                    color: 'inherit',
-                    textDecoration: 'none',
-                  }}
-                >
-                  Registration
-                </Typography>
-              </MenuItem>
-              <MenuItem>
-                <Typography
-                  textAlign="center"
-                  component={Link}
-                  to={'/login'}
-                  sx={{
-                    color: 'inherit',
-                    textDecoration: 'none',
-                  }}
-                >
-                  Log In
-                </Typography>
-              </MenuItem>
-            </Box>
-          )}
-        </Menu>
-      </Box>
-      <EmojiTransportationRoundedIcon
-        sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
-      />
-      <Typography
-        variant="h5"
-        noWrap
-        component={Link}
-        to="/"
-        sx={{
-          mr: 2,
-          display: { xs: 'flex', md: 'none' },
-          flexGrow: 1,
-          fontFamily: 'monospace',
-          fontWeight: 700,
-          letterSpacing: '.3rem',
-          color: 'inherit',
-          textDecoration: 'none',
-          textTransform: 'uppercase',
-        }}
-      >
-        Alpha garage
-      </Typography>
-
-      {isLoggedIn ? (
-        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+      <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
+        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
           <Button
             component={Link}
             to={'/contacts'}
-            sx={{ my: 2, color: 'white', display: 'block' }}
+            variant="text"
+            color="info"
+            size="small"
           >
-            Contacts
+            Наші послуги
           </Button>
           <Button
             component={Link}
             to={'/favorites'}
-            sx={{ my: 2, color: 'white', display: 'block' }}
+            variant="text"
+            color="info"
+            size="small"
           >
-            Favorites
+            Прайс ліст
+          </Button>
+          <Button
+            component={Link}
+            to={'/favorites'}
+            variant="text"
+            color="info"
+            size="small"
+          >
+            Обране
+          </Button>
+        </Box>
+      </Box>
+      {!isLoggedIn ? (
+        <Box
+          sx={{
+            display: { xs: 'none', md: 'flex' },
+            gap: 1,
+            alignItems: 'center',
+          }}
+        >
+          <Button
+            component={Link}
+            to={'/login'}
+            color="primary"
+            variant="text"
+            size="small"
+          >
+            Увійти
+          </Button>
+          <Button
+            component={Link}
+            to={'/registration'}
+            color="primary"
+            variant="contained"
+            size="small"
+          >
+            Реєстрація
           </Button>
         </Box>
       ) : (
-        <Box
-          sx={{
-            flexGrow: 1,
-            display: { xs: 'none', md: 'flex' },
-            justifyContent: 'flex-end',
+        <></>
+      )}
+      <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}>
+        <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
+          <MenuIcon />
+        </IconButton>
+        <Drawer
+          anchor="top"
+          open={open}
+          onClose={toggleDrawer(false)}
+          PaperProps={{
+            sx: {
+              top: 'var(--template-frame-height, 0px)',
+            },
           }}
         >
-          <>
-            <Button
-              component={Link}
-              to={'/registration'}
-              sx={{ my: 2, color: 'white', display: 'block' }}
+          <Box sx={{ p: 2, backgroundColor: 'background.default' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'flex-end',
+              }}
             >
-              Registration
-            </Button>
-            <Button
-              component={Link}
-              to={'/login'}
-              sx={{ my: 2, color: 'white', display: 'block' }}
-            >
-              Log In
-            </Button>
-          </>
-        </Box>
-      )}
+              <IconButton onClick={toggleDrawer(false)}>
+                <CloseRoundedIcon />
+              </IconButton>
+            </Box>
+            <MenuItem component={Link} to={'/contacts'}>
+              Наші послуги
+            </MenuItem>
+            <MenuItem component={Link} to={'/favorites'}>
+              Прайс Ліст
+            </MenuItem>
+            <MenuItem component={Link} to={'/favorites'}>
+              Обране
+            </MenuItem>
+            <Divider sx={{ my: 3 }} />
+            {!isLoggedIn ? (
+              <>
+                <MenuItem>
+                  <Button
+                    component={Link}
+                    to={'/registration'}
+                    color="primary"
+                    variant="contained"
+                    fullWidth
+                  >
+                    Зареєструватися
+                  </Button>
+                </MenuItem>
+                <MenuItem>
+                  <Button
+                    component={Link}
+                    to={'/login'}
+                    color="primary"
+                    variant="outlined"
+                    fullWidth
+                  >
+                    Авторизуватися
+                  </Button>
+                </MenuItem>
+              </>
+            ) : (
+              <></>
+            )}
+          </Box>
+        </Drawer>
+      </Box>
     </>
   );
 };
